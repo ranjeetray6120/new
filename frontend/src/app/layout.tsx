@@ -29,6 +29,26 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           }}
         />
         {/* End Google Tag Manager */}
+
+        {/* Google Tag (gtag.js) */}
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GTAG_ID || 'AW-17780056138'}`}
+          strategy="afterInteractive"
+        />
+        <Script
+          id="google-analytics"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+
+              gtag('config', '${process.env.NEXT_PUBLIC_GTAG_ID || 'AW-17780056138'}');
+            `,
+          }}
+        />
+        {/* End Google Tag (gtag.js) */}
       </head>
       <body className="antialiased bg-[#07080a] text-slate-100 min-h-screen" suppressHydrationWarning>
         {/* Google Tag Manager (noscript) */}
